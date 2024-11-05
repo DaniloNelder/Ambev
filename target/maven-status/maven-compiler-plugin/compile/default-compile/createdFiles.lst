@@ -1,0 +1,12 @@
+com\mount\ambev\exception\DuplicacaoPedidoException.class
+com\mount\ambev\component\PedidoListener.class
+com\mount\ambev\service\PedidoService.class
+com\mount\ambev\config\Application.class
+com\mount\ambev\AmbevApplication.class
+com\mount\ambev\config\CacheConfig.class
+com\mount\ambev\config\RabbitConfig.class
+com\mount\ambev\controller\PedidoController.class
+com\mount\ambev\repository\PedidoRepository.class
+com\mount\ambev\entity\Produto.class
+com\mount\ambev\entity\Pedido.class
+com\mount\ambev\repository\ProdutoRepository.class
