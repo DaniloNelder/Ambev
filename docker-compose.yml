@@ -1,0 +1,35 @@
+version: '3'  # Versão do Docker Compose
+
+services:
+  # Serviço Redis
+  redis:
+    image: redis:latest  # Imagem do Redis
+    container_name: redis-server  # Nome do container
+    ports:
+      - "6379:6379"  # Porta do Redis
+    volumes:
+      - redis-data:/data  # Volume para persistência de dados
+    networks:
+      - app-network  # Rede compartilhada
+    restart: always
+
+  # Serviço RabbitMQ
+  rabbitmq:
+    image: rabbitmq:management  # Imagem do RabbitMQ com interface de gerenciamento
+    container_name: rabbitmq  # Nome do container
+    hostname: rabbitmq  # Nome do host no container
+    ports:
+      - "5672:5672"  # Porta do RabbitMQ
+      - "15672:15672"  # Porta da interface de gerenciamento
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq  # Volume para persistência de dados
+    networks:
+      - app-network  # Rede compartilhada
+    restart: always
+
+volumes:
+  redis-data:  # Volume persistente para o Redis
+  rabbitmq_data:  # Volume persistente para o RabbitMQ
+
+networks:
+  app-network:  # Rede compartilhada entre os serviços
